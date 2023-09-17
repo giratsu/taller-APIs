@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather API</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/6364c06b65.js" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <nav>
+        <a href="index.html" id="home-logo-container">
+            <img id="home-logo" src="img/home_logo.png" alt="website home logo">
+        </a>
+        
+        <div id="link-container">
+            <a href="about.html">Acerca de WeatherAPI</a>
+            <a href="">Github</a>
+        </div>
+        
+        <div id="nav-right-section">
+            <form id="search-form" action="">
+                <input type="search" placeholder="País, ciudad, lat, long..." name="q">
+                <input type="submit">
+            </form>
+        </div>
+    </nav>
+    
+    <div class="main-container">
+        <div class="left">
+            <h2 id="location">Pinar, Uruguay</h2>
+            <img id="main-image" class="self-center" src="img/sun.svg" width="256" height="256">
+            <br>
+            <p id="main-temp" class="self-center">23 C°</p>
+            <br>
+            <p id="max-temp">28 c°</p>
+            <p id="min-temp">13 c°</p>
+            <br>
+            <p id="rain">R: 15%</p>
+            <p id="wind">W: 13 km/h</p>
+            <p id="humidity">H: 13 km/h</p>
+        </div>
+        <div class="top">
+            <h2>Pronóstico de 5 días</h2>
+            <div id="daily-forecast-container">
+                <!-- <div class="daily-forecast-element">
+                    <p>13:00</p>
+                    <div>
+                        <div>
+                            <img src="img/sun.svg" width="128" height="128">
+                            <p>Sunny</p>
+                        </div>
+                        <div>
+                            <p>Max: 15 C°</p>
+                            <p>Min: -3 C°</p>
+                            <p>Rain: 15%</p>
+                            <p>Wind: 12 Km/h</p>
+                            <p>H: 15%</p>
+                        </div> 
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="bottom">
+            <h2>Pronóstico para hoy</h2>
+            <div id="hourly-forecast-container">
+                <!-- <div class="hourly-forecast-element">
+                    <p>13:00</p>
+                    <div>
+                        <div>
+                            <img src="img/sun.svg" width="128" height="128">
+                            <p>Sunny</p>
+                        </div>
+                        <div>
+                            <p>Rain: 15%</p>
+                            <p>Wind: 12 Km/h</p>
+                            <p>H: 15%</p>
+                        </div> 
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
