@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", async ev=>{
     if(!query)
     {
         query = await GetCurrentLocation();
-        console.log(query);
     }
     
     let response = await fetch(FORECAST_SEARCH_URL(query, forecastDays + 1, false, false))
@@ -70,7 +69,7 @@ document.addEventListener("DOMContentLoaded", async ev=>{
     function UpdateScreenData(data)
     {
         location.innerHTML = data.location.name + ", " + data.location.region + ", " + data.location.country;
-        mainImage.setAttribute("src", "http:"+data.current.condition.icon);
+        mainImage.setAttribute("src", data.current.condition.icon);
         mainTemp.innerHTML = data.current.temp_c + " C°";
         maxTemp.innerHTML = "Max: " + data.forecast.forecastday[0].day.maxtemp_c + " C°";
         minTemp.innerHTML = "Min: " + data.forecast.forecastday[0].day.mintemp_c + "C°";
@@ -82,14 +81,14 @@ document.addEventListener("DOMContentLoaded", async ev=>{
         for(let i=0; i<data.forecast.forecastday[0].hour.length; i++)
         {
             let currentHour = data.forecast.forecastday[0].hour[i];
-            let hourElementHTML = forecastHourHTML(currentHour.time.slice(-5), "http:"+currentHour.condition.icon, currentHour.condition.text, currentHour.chance_of_rain, currentHour.wind_kph, currentHour.humidity);
+            let hourElementHTML = forecastHourHTML(currentHour.time.slice(-5), currentHour.condition.icon, currentHour.condition.text, currentHour.chance_of_rain, currentHour.wind_kph, currentHour.humidity);
             hourlyForecastContainer.innerHTML+=hourElementHTML;
         }
         // 5-day Forecast
         for(let i=1; i<forecastDays+1; i++) // empieza en 1, porque 0 es el día actual y no es relevante.
         {
             let currentDay = data.forecast.forecastday[i];
-            let dayElementHTML = forecastDayHTML(currentDay.date, "http:"+currentDay.day.condition.icon, currentDay.day.condition.text, currentDay.day.maxtemp_c, currentDay.day.mintemp_c, currentDay.day.totalprecip_mm, currentDay.day.maxwind_kph, currentDay.day.avghumidity);
+            let dayElementHTML = forecastDayHTML(currentDay.date, currentDay.day.condition.icon, currentDay.day.condition.text, currentDay.day.maxtemp_c, currentDay.day.mintemp_c, currentDay.day.totalprecip_mm, currentDay.day.maxwind_kph, currentDay.day.avghumidity);
             dailyForecastContainer.innerHTML+=dayElementHTML;
         }
     }
