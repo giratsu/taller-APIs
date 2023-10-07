@@ -44,7 +44,7 @@ document.addEventListener("DOMContentLoaded", async ev=>{
     const searchParams = new URLSearchParams(window.location.search);
     let query = searchParams.get("q");
     
-    const forecastDays = 5;
+    const forecastDays = 2;
     const location = document.getElementById("location");
     const mainImage = document.getElementById("main-image")
     const mainTemp = document.getElementById("main-temp");
